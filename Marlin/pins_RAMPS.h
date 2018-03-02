@@ -168,8 +168,8 @@
 // Temperature Sensors
 //
 #define TEMP_0_PIN         13   // Analog Input
-#define TEMP_1_PIN         15   // Analog Input
-#define TEMP_BED_PIN       14   // Analog Input
+#define TEMP_1_PIN         14   // Analog Input //admg 2018-03-02 was 15
+#define TEMP_BED_PIN       15   // Analog Input //admg 2018-03-02 was 14
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
@@ -226,19 +226,19 @@
   #define FAN_PIN        RAMPS_D9_PIN
   #define FAN1_PIN       RAMPS_D8_PIN
 #elif ENABLED(IS_RAMPS_SF)                     // Spindle, Fan
-  #define FAN_PIN        RAMPS_D8_PIN
+  #define FAN_PIN        RAMPS_D5_PIN           //admg 2018-03-01 was RAMPS_D8_PIN
 #else                                          // Non-specific are "EFB" (i.e., "EFBF" or "EFBE")
-  #define FAN_PIN        RAMPS_D9_PIN
+  #define FAN_PIN        RAMPS_D5_PIN           //admg 2018-03-01 was RAMPS_D8_PIN
   #define HEATER_BED_PIN RAMPS_D8_PIN
   #if HOTENDS == 1
-    #define FAN1_PIN     MOSFET_D_PIN
+    #define FAN1_PIN     RAMPS_D42_PIN //admg 2018-03-02 was MOSFET_D_PIN
   #else
-    #define HEATER_1_PIN MOSFET_D_PIN
+    #define HEATER_1_PIN  RAMPS_D9_PIN           //admg 2018-03-01 was MOSFET_D_PIN
   #endif
 #endif
 
 #ifndef FAN_PIN
-  #define FAN_PIN 4      // IO pin. Buffer needed
+  #define FAN_PIN 5      // IO pin. Buffer needed     //admg 2018-03-02
 #endif
 
 //
@@ -334,7 +334,7 @@
 
     #else
 
-      #if ENABLED(MKS_12864OLED) || ENABLED(MKS_12864OLED_SSD1306)
+      #if ENABLED(MKS_12864OLED)
         #define LCD_PINS_DC     25 // Set as output on init
         #define LCD_PINS_RS     27 // Pull low for 1s to init
         // DOGM SPI LCD Support
