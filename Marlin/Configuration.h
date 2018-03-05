@@ -771,6 +771,13 @@
 //#define Z_HOMING_HEIGHT 4  // (in mm) Minimal z height before homing (G28) for Z clearance above the bed, clamps, ...
                              // Be sure you have this distance over your Z_MAX_POS in case.
 
+
+//admg MOTOR WIRING for Zedmaker - RAMPS 1.4
+//Left motor - as viewed from front - wired to Y terminals, red wire towards power socket on RAMPS.
+//Right motor - as viewed from front - wired to X terminals, red wire away from power socker on RAMPS
+
+
+
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #define X_HOME_DIR -1
@@ -780,8 +787,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 260
+#define Y_BED_SIZE 210
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1375,7 +1382,7 @@
 //
 //  Set this option if CLOCKWISE causes values to DECREASE
 //
-//#define REVERSE_ENCODER_DIRECTION
+#define REVERSE_ENCODER_DIRECTION //admg 2018-03-05
 
 //
 // This option reverses the encoder direction for navigating LCD menus.
